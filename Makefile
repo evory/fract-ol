@@ -6,14 +6,14 @@
 #    By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 15:51:08 by bbrandt           #+#    #+#              #
-#    Updated: 2017/07/26 17:34:14 by bbrandt          ###   ########.fr        #
+#    Updated: 2017/08/11 16:45:11 by bbrandt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRC = src/main.c \
-
+SRC = 	src/main.c \
+		src/draw.c \
 
 FLAGS = -Wall -Werror -Wextra
 
