@@ -6,14 +6,17 @@
 #    By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 15:51:08 by bbrandt           #+#    #+#              #
-#    Updated: 2017/08/21 17:15:08 by bbrandt          ###   ########.fr        #
+#    Updated: 2017/08/29 17:21:14 by bbrandt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 SRC = 	src/main.c \
-		src/draw.c \
+		src/tools.c \
+		src/julia.c \
+		src/mandelbrot.c \
+		src/choose.c \
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -35,3 +38,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

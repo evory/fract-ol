@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/26 17:12:50 by bbrandt           #+#    #+#             */
+/*   Created: 2017/08/29 16:00:22 by bbrandt           #+#    #+#             */
 /*   Updated: 2017/08/29 17:43:17 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
-int		ft_init_mlx(t_ms *ms)
+int		key_hook(int keycode, t_ms *ms)
 {
-	ms->mlx = mlx_init();
-	ms->win = mlx_new_window(ms->mlx, WIDTH, HEIGHT, "fractol");
-	ms->img = mlx_new_image(ms->mlx, WIDTH, HEIGHT);
-	ms->pixels = mlx_get_data_addr(ms->img, &ms->bpp, &ms->s_l, &ms->endian);
+	if (keycode == EXIT)
+		exit(EXIT_SUCCESS);
+	else
+		return (0);
+	mlx_destroy_image(ms->mlx, ms->img);
 	return (0);
 }
 
-int		main(int argc, char const **argv)
+void	check_name(t_ms *ms, char const *name)
 {
-	t_ms	*ms;
-
-	if (!(ms = (t_ms *)malloc(sizeof(t_ms))))
-		return (-1);
-	if (argc != 2)
+	if (ft_strcmp(name, "julia") == 0)
+	{
+		init_julia(ms);
+		launch_julia(ms);
+	}
+	else if (ft_strcmp(name, "mandelbrot") == 0)
+	{
+		init_mandelbrot(ms);
+		launch_mandelbrot(ms);
+	}
+	else if (ft_strcmp(name, "choose") == 0)
+	{
+		init_choose(ms);
+		launch_choose(ms);
+	}
+	else
 	{
 		ft_putendl("usage : ./fractol [julia, mandelbrot or choose]");
-		return (0);
+		exit(EXIT_SUCCESS);
 	}
-	ft_init_mlx(ms);
-	check_name(ms, argv[1]);
-
-	mlx_hook(ms->win, 2, 1, key_hook, &ms);
-	mlx_loop(ms->mlx);
-	free(&ms);
-	return (0);
 }
