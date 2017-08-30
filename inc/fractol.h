@@ -6,19 +6,18 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:17:51 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/08/29 17:43:16 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/08/30 23:10:38 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-#                                    include <stdio.h>
+#                              include <stdio.h>
 # include <math.h>
 # include "../lib/libft/libft.h"
 # include <mlx.h>
-# include <pthreads.h>
-# define WIDTH 640
-# define HEIGHT 400
+# include <pthread.h>
+# define WIDTH 799
 # define KEYPRESS 2
 # define KEYPRESSMASK 1
 # define EXIT 53
@@ -61,8 +60,8 @@ void			init_choose(t_ms *ms);
 void			launch_julia(t_ms *ms);
 void			launch_mandelbrot(t_ms *ms);
 void			launch_choose(t_ms *ms);
-
+void			put_pxl_to_img(t_ms *ms, int x, int y, int color);
 int				key_hook(int keycode, t_ms *ms);
-
+int				ft_close(void);
 
 #endif

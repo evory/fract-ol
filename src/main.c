@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:12:50 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/08/29 17:43:17 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/08/30 23:14:07 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int		ft_init_mlx(t_ms *ms)
 {
 	ms->mlx = mlx_init();
-	ms->win = mlx_new_window(ms->mlx, WIDTH, HEIGHT, "fractol");
-	ms->img = mlx_new_image(ms->mlx, WIDTH, HEIGHT);
+	ms->win = mlx_new_window(ms->mlx, WIDTH, WIDTH, "fractol");
+	ms->img = mlx_new_image(ms->mlx, WIDTH, WIDTH);
 	ms->pixels = mlx_get_data_addr(ms->img, &ms->bpp, &ms->s_l, &ms->endian);
 	return (0);
 }
@@ -35,7 +35,7 @@ int		main(int argc, char const **argv)
 	ft_init_mlx(ms);
 	check_name(ms, argv[1]);
 
-	mlx_hook(ms->win, 2, 1, key_hook, &ms);
+	mlx_hook(ms->win, 2, 1, key_hook, ms);
 	mlx_loop(ms->mlx);
 	free(&ms);
 	return (0);
