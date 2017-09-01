@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:36:48 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/08/30 23:15:24 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/01 15:38:39 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	julia(t_ms *ms)
 		ms->z_i = 2 * ms->z_i * ms->tmp + ms->c_i / WIDTH;
 		ms->it++;
  	}
-	// printf("%f\n", ms->x);
 	if (ms->it == ms->it_max)
 		put_pxl_to_img(ms, ms->x, ms->y, 0x000000);
 	else
@@ -77,7 +76,7 @@ void	launch_julia(t_ms *ms)
 
 void	init_julia(t_ms *ms)
 {
-	ms->it_max = 40;
+	ms->it_max = 50;
 	ms->zoom = 200;
 	ms->x1 = -2.0;
 	ms->y1 = -1.9;

@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:00:22 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/08/30 23:14:06 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/01 15:39:20 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,37 +28,35 @@ void	put_pxl_to_img(t_ms *ms, int x, int y, int color)
 	}
 }
 
-
-int		key_hook(int keycode, t_ms *ms)
+void	choose_launcher(t_ms *ms)
 {
-	if (keycode == EXIT)
-		exit(EXIT_SUCCESS);
-	else
-		return (0);
-	mlx_destroy_image(ms->mlx, ms->img);
-	return (0);
+	if (ms->name == 1)
+		launch_julia(ms);
+	// if (ms->name == 2)
+	// 	launch_mandelbrot(ms);
+	// if (ms->name == 3)
+	// 	launch_choose(ms);
+}
+
+void	launch_fractal(t_ms *ms)
+{
+	if (ms->name == 1)
+		init_julia(ms);
+	if (ms->name == 2)
+		init_mandelbrot(ms);
+	if (ms->name == 3)
+		init_choose(ms);
+	choose_launcher(ms);
 }
 
 void	check_name(t_ms *ms, char const *name)
 {
-	if (ms->it_max < 0)
-		ms->it_max = 0;
 	if (ft_strcmp(name, "julia") == 0)
-	{
-		init_julia(ms);
-		launch_julia(ms);
-	}
+		ms->name = 1;
 	else if (ft_strcmp(name, "mandelbrot") == 0)
-	{
-		init_mandelbrot(ms);
-		// launch_mandelbrot(ms);
-	}
+		ms->name = 2;
 	else if (ft_strcmp(name, "choose") == 0)
-	{
-		init_choose(ms);
-		// launch_choose(ms);
-	}
-
+		ms->name = 3;
 	else
 	{
 		ft_putendl("usage : ./fractol [julia, mandelbrot or choose]");

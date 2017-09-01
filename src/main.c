@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:12:50 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/08/30 23:14:07 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/01 15:35:06 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		main(int argc, char const **argv)
 	}
 	ft_init_mlx(ms);
 	check_name(ms, argv[1]);
+	launch_fractal(ms);
 
 	mlx_hook(ms->win, 2, 1, key_hook, ms);
 	mlx_loop(ms->mlx);

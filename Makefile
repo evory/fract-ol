@@ -6,7 +6,7 @@
 #    By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 15:51:08 by bbrandt           #+#    #+#              #
-#    Updated: 2017/08/29 17:21:14 by bbrandt          ###   ########.fr        #
+#    Updated: 2017/09/01 15:17:48 by bbrandt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = 	src/main.c \
 		src/julia.c \
 		src/mandelbrot.c \
 		src/choose.c \
+		src/hooks.c
 
 FLAGS = -Wall -Werror -Wextra
 

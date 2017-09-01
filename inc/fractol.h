@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:17:51 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/08/30 23:10:38 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/01 15:36:47 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 # include "../lib/libft/libft.h"
 # include <mlx.h>
 # include <pthread.h>
-# define WIDTH 799
+# define WIDTH 699
 # define KEYPRESS 2
 # define KEYPRESSMASK 1
 # define EXIT 53
-
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
 typedef struct	s_ms
 {
 	void		*mlx;
@@ -32,6 +35,7 @@ typedef struct	s_ms
 	int			bpp;
 	int			endian;
 
+	int			name;
 	int			color;
 	int			mouse;
 	double		zoom;
@@ -63,5 +67,7 @@ void			launch_choose(t_ms *ms);
 void			put_pxl_to_img(t_ms *ms, int x, int y, int color);
 int				key_hook(int keycode, t_ms *ms);
 int				ft_close(void);
+void			launch_fractal(t_ms *ms);
+void			choose_launcher(t_ms*ms);
 
 #endif
