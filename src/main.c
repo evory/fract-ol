@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:12:50 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/01 15:35:06 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/05 21:53:08 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ int		main(int argc, char const **argv)
 		return (-1);
 	if (argc != 2)
 	{
-		ft_putendl("usage : ./fractol [julia, mandelbrot or choose]");
+		ft_putendl("usage : ./fractol [julia, mandelbrot or burningship]");
 		return (0);
 	}
 	ft_init_mlx(ms);
 	check_name(ms, argv[1]);
-	launch_fractal(ms);
-
+	burningship_launcher(ms);
+	mlx_hook(ms->win, 6, 1L < 6, mouse_julia, ms);
 	mlx_hook(ms->win, 2, 1, key_hook, ms);
+	mlx_mouse_hook(ms->win, mouse_hook, ms);
 	mlx_loop(ms->mlx);
 	free(&ms);
 	return (0);

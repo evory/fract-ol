@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:17:51 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/01 15:36:47 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/05 21:53:05 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../lib/libft/libft.h"
 # include <mlx.h>
 # include <pthread.h>
-# define WIDTH 699
+# define WIDTH 799
 # define KEYPRESS 2
 # define KEYPRESSMASK 1
 # define EXIT 53
@@ -25,6 +25,7 @@
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124
+
 typedef struct	s_ms
 {
 	void		*mlx;
@@ -38,6 +39,7 @@ typedef struct	s_ms
 	int			name;
 	int			color;
 	int			mouse;
+	int			j_mouse;
 	double		zoom;
 	double		it_max;
 	double		x1;
@@ -53,21 +55,20 @@ typedef struct	s_ms
 	double		x2;
 	double		y2;
 	double		tmp;
-
 }				t_ms;
 
 void			check_name(t_ms *ms, char const *name);
-void			init_fractal(t_ms *ms);
 void			init_julia(t_ms *ms);
 void			init_mandelbrot(t_ms *ms);
-void			init_choose(t_ms *ms);
+void			init_burningship(t_ms *ms);
 void			launch_julia(t_ms *ms);
 void			launch_mandelbrot(t_ms *ms);
-void			launch_choose(t_ms *ms);
+void			launch_burningship(t_ms *ms);
 void			put_pxl_to_img(t_ms *ms, int x, int y, int color);
 int				key_hook(int keycode, t_ms *ms);
-int				ft_close(void);
 void			launch_fractal(t_ms *ms);
-void			choose_launcher(t_ms*ms);
+void			burningship_launcher(t_ms *ms);
+int				mouse_hook(int mousecode, int x, int y, t_ms *ms);
+int				mouse_julia(int x, int y, t_ms *ms);
 
 #endif

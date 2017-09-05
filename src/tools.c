@@ -6,17 +6,11 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:00:22 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/01 15:39:20 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/05 22:03:27 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
-
-// int		ft_close(void)
-// {
-// 	exit(1);
-// 	return (0);
-// }
 
 void	put_pxl_to_img(t_ms *ms, int x, int y, int color)
 {
@@ -28,25 +22,25 @@ void	put_pxl_to_img(t_ms *ms, int x, int y, int color)
 	}
 }
 
-void	choose_launcher(t_ms *ms)
+void	launch_fractal(t_ms *ms)
 {
 	if (ms->name == 1)
 		launch_julia(ms);
-	// if (ms->name == 2)
-	// 	launch_mandelbrot(ms);
-	// if (ms->name == 3)
-	// 	launch_choose(ms);
+	if (ms->name == 2)
+		launch_mandelbrot(ms);
+	if (ms->name == 3)
+		launch_burningship(ms);
 }
 
-void	launch_fractal(t_ms *ms)
+void	burningship_launcher(t_ms *ms)
 {
 	if (ms->name == 1)
 		init_julia(ms);
 	if (ms->name == 2)
 		init_mandelbrot(ms);
 	if (ms->name == 3)
-		init_choose(ms);
-	choose_launcher(ms);
+		init_burningship(ms);
+	launch_fractal(ms);
 }
 
 void	check_name(t_ms *ms, char const *name)
@@ -55,11 +49,11 @@ void	check_name(t_ms *ms, char const *name)
 		ms->name = 1;
 	else if (ft_strcmp(name, "mandelbrot") == 0)
 		ms->name = 2;
-	else if (ft_strcmp(name, "choose") == 0)
+	else if (ft_strcmp(name, "burningship") == 0)
 		ms->name = 3;
 	else
 	{
-		ft_putendl("usage : ./fractol [julia, mandelbrot or choose]");
+		ft_putendl("usage : ./fractol [julia, mandelbrot or burningship]");
 		exit(EXIT_SUCCESS);
 	}
 }

@@ -16,7 +16,7 @@ SRC = 	src/main.c \
 		src/tools.c \
 		src/julia.c \
 		src/mandelbrot.c \
-		src/choose.c \
+		src/burningship.c \
 		src/hooks.c
 
 FLAGS = -Wall -Werror -Wextra

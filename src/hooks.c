@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 15:17:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/01 15:54:07 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/05 22:07:40 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,46 @@ int		key_hook(int keycode, t_ms *ms)
 		ms->x1 -= 30 / ms->zoom;
 	if (keycode == RIGHT)
 		ms->x1 += 30 / ms->zoom;
-	if (keycode == 69)
-		ms->zoom += 10;
-	if (keycode == 78)
-		ms->zoom -= 10;
 	if (keycode == 83)
-		ms->color = 1047111;
-	choose_launcher(ms);
+		ms->color = 103711;
+	if (keycode == 69)
+		ms->it_max++;
+	if (keycode == 78)
+		ms->it_max--;
+	if (keycode == 15)
+		burningship_launcher(ms);
+	launch_fractal(ms);
+	return (0);
+}
+
+void	ft_zoom(int x, int y, t_ms *ms)
+{
+	ms->x2 = x;
+	ms->y2 = y;
+	ms->x1 = (x / ms->zoom + ms->x1) - ((ms->zoom * 1.3) / 2);
+	ms->x1 += ((ms->zoom * 1.3) / 2) - (x / (ms->zoom * 1.3));
+	ms->y1 = (y / ms->zoom + ms->y1) - ((ms->zoom * 1.3) / 2);
+	ms->y1 += ((ms->zoom * 1.3) / 2) - (y / (ms->zoom * 1.3));
+	ms->zoom *= 1.3;
+	ms->it_max++;
+}
+
+void	ft_dezoom(t_ms *ms)
+{
+	ms->x1 = (ms->x2 / ms->zoom + ms->x1) - ((ms->zoom / 1.3) / 2);
+	ms->x1 += ((ms->zoom / 1.3) / 2) - (ms->x2 / (ms->zoom / 1.3));
+	ms->y1 = (ms->y2 / ms->zoom + ms->y1) - ((ms->zoom / 1.3) / 2);
+	ms->y1 += ((ms->zoom / 1.3) / 2) - (ms->y2 / (ms->zoom / 1.3));
+	ms->zoom /= 1.3;
+	ms->it_max--;
+}
+
+int		mouse_hook(int mousecode, int x, int y, t_ms *ms)
+{
+	if (mousecode == 4 || mousecode == 1)
+		ft_zoom(x, y, ms);
+	else if (mousecode == 5 || mousecode == 2)
+		ft_dezoom(ms);
+	launch_fractal(ms);
 	return (0);
 }
