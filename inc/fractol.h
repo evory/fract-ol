@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:17:51 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/05 21:53:05 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/07 18:49:46 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void			launch_burningship(t_ms *ms);
 void			put_pxl_to_img(t_ms *ms, int x, int y, int color);
 int				key_hook(int keycode, t_ms *ms);
 void			launch_fractal(t_ms *ms);
-void			burningship_launcher(t_ms *ms);
+void			choose_launcher(t_ms *ms);
 int				mouse_hook(int mousecode, int x, int y, t_ms *ms);
 int				mouse_julia(int x, int y, t_ms *ms);
 

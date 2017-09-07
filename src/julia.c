@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:36:48 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/05 22:04:54 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/07 18:53:53 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	launch_julia(t_ms *ms)
 	while (i < 8)
 	{
 		ft_memcpy((void *)&tab_ms[i], (void *)ms, sizeof(t_ms));
-		tab_ms[i].y = 100;
+		tab_ms[i].y = 0;
 		tab_ms[i].y_max = 100 * (i + 1);
 		i++;
 	}
@@ -78,6 +78,7 @@ int		mouse_julia(int x, int y, t_ms *ms)
 {
 	if (ms->name == 1 && ms->j_mouse == 1)
 	{
+
 		ms->c_r = x * 2;
 		ms->c_i = y * 2 - 800;
 		launch_fractal(ms);
@@ -89,9 +90,9 @@ void	init_julia(t_ms *ms)
 {
 	ms->it_max = 50;
 	ms->zoom = 200;
-	ms->x1 = -1.8;
+	ms->x1 = -2.0;
 	ms->y1 = -1.8;
-	ms->color = 150;
+	ms->color = 15;
 	ms->c_r = 0.285;
 	ms->c_i = 0.01;
 	ms->mouse = 1;

@@ -6,22 +6,14 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:07:25 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/05 21:53:07 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/07 18:46:01 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
-void	init_burningship(t_ms *ms)
-{
-	ms->it_max = 40;
-	ms->zoom = 300;
-	ms->x1 = -2.05;
-	ms->y1 = -1.3;
-	ms->color = 265;
-}
 
-void	burningship_calc(t_ms *ms)
+void	burningship(t_ms *ms)
 {
 	ms->c_r = ms->x / ms->zoom + ms->x1;
 	ms->c_i = ms->y / ms->zoom + ms->y1;
@@ -42,7 +34,7 @@ void	burningship_calc(t_ms *ms)
 		put_pxl_to_img(ms, ms->x, ms->y, (ms->color * ms->it));
 }
 
-void	*burningship(void *tab)
+void	*burningship_loop(void *tab)
 {
 	double	tmp;
 	t_ms	*ms;
@@ -55,7 +47,7 @@ void	*burningship(void *tab)
 		ms->y = tmp;
 		while (ms->y < ms->y_max)
 		{
-			burningship_calc(ms);
+			burningship(ms);
 			ms->y++;
 		}
 		ms->x++;
@@ -79,8 +71,17 @@ void	launch_burningship(t_ms *ms)
 	}
 	i = 0;
 	while (++i <= 8)
-		pthread_create(&t[i - 1], NULL, burningship, &tab[i - 1]);
+		pthread_create(&t[i - 1], NULL, burningship_loop, &tab[i - 1]);
 	while (i--)
 		pthread_join(t[i], NULL);
 	mlx_put_image_to_window(ms->mlx, ms->win, ms->img, 0, 0);
+}
+
+void	init_burningship(t_ms *ms)
+{
+	ms->it_max = 40;
+	ms->zoom = 250;
+	ms->x1 = -2.00;
+	ms->y1 = -2.1;
+	ms->color = 265;
 }

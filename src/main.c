@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:12:50 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/05 21:53:08 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/07 18:50:34 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		main(int argc, char const **argv)
 	}
 	ft_init_mlx(ms);
 	check_name(ms, argv[1]);
-	burningship_launcher(ms);
-	mlx_hook(ms->win, 6, 1L < 6, mouse_julia, ms);
+	choose_launcher(ms);
+	mlx_hook(ms->win, 2, 1, mouse_julia, ms);
 	mlx_hook(ms->win, 2, 1, key_hook, ms);
 	mlx_mouse_hook(ms->win, mouse_hook, ms);
 	mlx_loop(ms->mlx);

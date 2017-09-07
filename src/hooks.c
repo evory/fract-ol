@@ -6,15 +6,37 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 15:17:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/05 22:07:40 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/07 18:44:37 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
+int		key_hook2(int keycode, t_ms *ms)
+{
+	if (keycode == 18)
+	{
+		ms->name = 1;
+		choose_launcher(ms);
+	}
+	if (keycode == 19)
+	{
+		ms->name = 2;
+		choose_launcher(ms);
+	}
+	if (keycode == 20)
+	{
+		ms->name = 3;
+		choose_launcher(ms);
+	}
+	if (keycode == 15)
+		choose_launcher(ms);
+	launch_fractal(ms);
+	return (0);
+}
+
 int		key_hook(int keycode, t_ms *ms)
 {
-	printf("%d\n", keycode);
 	if (keycode == EXIT)
 		exit(EXIT_SUCCESS);
 	if (keycode == UP)
@@ -31,9 +53,7 @@ int		key_hook(int keycode, t_ms *ms)
 		ms->it_max++;
 	if (keycode == 78)
 		ms->it_max--;
-	if (keycode == 15)
-		burningship_launcher(ms);
-	launch_fractal(ms);
+	key_hook2(keycode, ms);
 	return (0);
 }
 

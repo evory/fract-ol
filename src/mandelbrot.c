@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:07:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/05 21:53:04 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/07 18:45:19 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	init_mandelbrot(t_ms *ms)
 {
 	ms->it_max = 50;
 	ms->zoom = 300;
-	ms->x1 = -2.05;
-	ms->y1 = -1.3;
+	ms->x1 = -2.0;
+	ms->y1 = -1.4;
 	ms->color = 265;
 }
 
-void	mandelbrot_calc(t_ms *ms)
+void	mandelbrot(t_ms *ms)
 {
 	ms->c_r = ms->x / ms->zoom + ms->x1;
 	ms->c_i = ms->y / ms->zoom + ms->y1;
@@ -56,7 +56,7 @@ void	*mandelbrot_loop(void *tab)
 		ms->y = tmp;
 		while (ms->y < ms->y_max)
 		{
-			mandelbrot_calc(ms);
+			mandelbrot(ms);
 			ms->y++;
 		}
 		ms->x++;

@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:00:22 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/05 22:03:27 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/07 18:49:48 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	launch_fractal(t_ms *ms)
 		launch_burningship(ms);
 }
 
-void	burningship_launcher(t_ms *ms)
+void	choose_launcher(t_ms *ms)
 {
 	if (ms->name == 1)
 		init_julia(ms);
