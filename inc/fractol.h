@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:17:51 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/07 18:49:46 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/08 11:25:51 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct	s_ms
 	int			s_l;
 	int			bpp;
 	int			endian;
-
 	int			name;
 	int			color;
 	int			mouse;
@@ -70,5 +69,6 @@ void			launch_fractal(t_ms *ms);
 void			choose_launcher(t_ms *ms);
 int				mouse_hook(int mousecode, int x, int y, t_ms *ms);
 int				mouse_julia(int x, int y, t_ms *ms);
+int				ft_init_mlx(t_ms *ms);
 
 #endif

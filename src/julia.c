@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:36:48 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/07 18:53:53 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/08 11:37:47 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	launch_julia(t_ms *ms)
 
 int		mouse_julia(int x, int y, t_ms *ms)
 {
+	printf("coucou\n");
 	if (ms->name == 1 && ms->j_mouse == 1)
 	{
-
 		ms->c_r = x * 2;
 		ms->c_i = y * 2 - 800;
 		launch_fractal(ms);

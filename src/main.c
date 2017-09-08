@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:12:50 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/07 18:50:34 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/08 10:31:24 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		main(int argc, char const **argv)
 	ft_init_mlx(ms);
 	check_name(ms, argv[1]);
 	choose_launcher(ms);
+	// mouse_julia(400,100,ms);
 	mlx_hook(ms->win, 2, 1, mouse_julia, ms);
 	mlx_hook(ms->win, 2, 1, key_hook, ms);
 	mlx_mouse_hook(ms->win, mouse_hook, ms);
