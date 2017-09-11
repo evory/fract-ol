@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:36:48 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 19:12:09 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 21:47:29 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		mouse_julia(int x, int y, t_ms *ms)
 
 void	init_julia(t_ms *ms)
 {
-	ms->it_max = 50;
+	ms->it_max = 30;
 	ms->zoom = 200;
 	ms->x1 = -2.0;
 	ms->y1 = -1.8;

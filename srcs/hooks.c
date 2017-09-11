@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 15:17:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 19:09:10 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 20:44:28 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int		key_hook(int keycode, t_ms *ms)
 		ms->it_max++;
 	if (keycode == 78)
 		ms->it_max--;
+	if (keycode == 89)
+		ms->more_color = 1;
 	key_hook2(keycode, ms);
 	return (0);
 }

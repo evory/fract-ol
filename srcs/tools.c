@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:00:22 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 18:58:01 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 20:39:15 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ void	text(t_ms *ms)
 	str = "[+] [-] : Change level of details";
 	mlx_string_put(ms->mlx, ms->win, 90, 135, 0xFFFFFF, str);
 	str = "[H] : Hide text";
-	mlx_string_put(ms->mlx, ms->win, 90, 175, 0xFFFFFF, str);
+	mlx_string_put(ms->mlx, ms->win, 90, 755, 0xFFFFFF, str);
 }

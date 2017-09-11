@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:17:51 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 18:58:48 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 20:36:05 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct	s_ms
 	int			mouse;
 	int			j_mouse;
 	int			text;
+	int			more_color;
 	double		zoom;
 	double		it_max;
 	double		x1;
@@ -72,5 +73,4 @@ int				mouse_julia(int x, int y, t_ms *ms);
 int				ft_init_mlx(t_ms *ms);
 void			more_options(int keycode, t_ms *ms);
 void			text(t_ms *ms);
-
 #endif

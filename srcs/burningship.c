@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:07:25 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 19:12:08 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 21:48:44 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ void	launch_burningship(t_ms *ms)
 
 void	init_burningship(t_ms *ms)
 {
-	ms->it_max = 40;
+	ms->it_max = 150;
 	ms->zoom = 250;
 	ms->x1 = -2.00;
 	ms->y1 = -2.1;
-	ms->color = 265;
+	ms->color = 902000;
 }
