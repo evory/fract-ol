@@ -6,13 +6,12 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:17:51 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/08 11:25:51 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 18:58:48 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-#                              include <stdio.h>
 # include <math.h>
 # include "../lib/libft/libft.h"
 # include <mlx.h>
@@ -39,6 +38,7 @@ typedef struct	s_ms
 	int			color;
 	int			mouse;
 	int			j_mouse;
+	int			text;
 	double		zoom;
 	double		it_max;
 	double		x1;
@@ -56,7 +56,7 @@ typedef struct	s_ms
 	double		tmp;
 }				t_ms;
 
-void			check_name(t_ms *ms, char const *name);
+int				ft_init_mlx(t_ms *ms);
 void			init_julia(t_ms *ms);
 void			init_mandelbrot(t_ms *ms);
 void			init_burningship(t_ms *ms);
@@ -67,8 +67,10 @@ void			put_pxl_to_img(t_ms *ms, int x, int y, int color);
 int				key_hook(int keycode, t_ms *ms);
 void			launch_fractal(t_ms *ms);
 void			choose_launcher(t_ms *ms);
-int				mouse_hook(int mousecode, int x, int y, t_ms *ms);
+int				mouse_zoom(int mousecode, int x, int y, t_ms *ms);
 int				mouse_julia(int x, int y, t_ms *ms);
 int				ft_init_mlx(t_ms *ms);
+void			more_options(int keycode, t_ms *ms);
+void			text(t_ms *ms);
 
 #endif

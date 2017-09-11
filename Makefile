@@ -6,18 +6,19 @@
 #    By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 15:51:08 by bbrandt           #+#    #+#              #
-#    Updated: 2017/09/01 15:17:48 by bbrandt          ###   ########.fr        #
+#    Updated: 2017/09/11 16:34:59 by bbrandt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRC = 	src/main.c \
-		src/tools.c \
-		src/julia.c \
-		src/mandelbrot.c \
-		src/burningship.c \
-		src/hooks.c
+SRC = 	srcs/main.c \
+		srcs/tools.c \
+		srcs/julia.c \
+		srcs/mandelbrot.c \
+		srcs/burningship.c \
+		srcs/hooks.c \
+		srcs/more_options.c
 
 FLAGS = -Wall -Werror -Wextra
 

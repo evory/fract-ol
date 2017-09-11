@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:36:48 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/08 11:37:47 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 19:12:09 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,13 @@ void	launch_julia(t_ms *ms)
 	while (--i)
 		pthread_join(thread[i], NULL);
 	mlx_put_image_to_window(ms->mlx, ms->win, ms->img, 0, 0);
+	if (ms->text == 0)
+		text(ms);
 }
 
 int		mouse_julia(int x, int y, t_ms *ms)
 {
-	printf("coucou\n");
-	if (ms->name == 1 && ms->j_mouse == 1)
+	if (ms->j_mouse == 1)
 	{
 		ms->c_r = x * 2;
 		ms->c_i = y * 2 - 800;
@@ -95,5 +96,4 @@ void	init_julia(t_ms *ms)
 	ms->color = 15;
 	ms->c_r = 0.285;
 	ms->c_i = 0.01;
-	ms->mouse = 1;
 }

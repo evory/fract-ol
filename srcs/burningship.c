@@ -6,12 +6,11 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:07:25 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/07 18:46:01 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 19:12:08 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
-
 
 void	burningship(t_ms *ms)
 {
@@ -75,6 +74,8 @@ void	launch_burningship(t_ms *ms)
 	while (i--)
 		pthread_join(t[i], NULL);
 	mlx_put_image_to_window(ms->mlx, ms->win, ms->img, 0, 0);
+	if (ms->text == 0)
+		text(ms);
 }
 
 void	init_burningship(t_ms *ms)

@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:07:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/07 18:45:19 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 19:09:06 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,6 @@ void	launch_mandelbrot(t_ms *ms)
 	while (i--)
 		pthread_join(t[i], NULL);
 	mlx_put_image_to_window(ms->mlx, ms->win, ms->img, 0, 0);
+	if (ms->text == 0)
+		text(ms);
 }

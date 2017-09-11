@@ -6,20 +6,11 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 17:12:50 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/08 10:31:24 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 19:15:36 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
-
-int		ft_init_mlx(t_ms *ms)
-{
-	ms->mlx = mlx_init();
-	ms->win = mlx_new_window(ms->mlx, WIDTH, WIDTH, "fractol");
-	ms->img = mlx_new_image(ms->mlx, WIDTH, WIDTH);
-	ms->pixels = mlx_get_data_addr(ms->img, &ms->bpp, &ms->s_l, &ms->endian);
-	return (0);
-}
 
 int		main(int argc, char const **argv)
 {
@@ -27,18 +18,17 @@ int		main(int argc, char const **argv)
 
 	if (!(ms = (t_ms *)malloc(sizeof(t_ms))))
 		return (-1);
-	if (argc != 2)
+	if (argc != 1)
 	{
-		ft_putendl("usage : ./fractol [julia, mandelbrot or burningship]");
+		ft_putendl("no parameters require, launch ./fractol alone");
 		return (0);
 	}
+	ms->name = 1;
 	ft_init_mlx(ms);
-	check_name(ms, argv[1]);
 	choose_launcher(ms);
-	// mouse_julia(400,100,ms);
-	mlx_hook(ms->win, 2, 1, mouse_julia, ms);
+	mlx_hook(ms->win, 6, 1L << 6, mouse_julia, ms);
 	mlx_hook(ms->win, 2, 1, key_hook, ms);
-	mlx_mouse_hook(ms->win, mouse_hook, ms);
+	mlx_mouse_hook(ms->win, mouse_zoom, ms);
 	mlx_loop(ms->mlx);
 	free(&ms);
 	return (0);

@@ -6,59 +6,13 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 15:17:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/08 11:50:38 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/11 19:09:10 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
-void	more_option2(int keycode, t_ms *ms)
-{
-	printf("%f\n", ms->it_max);
-	if (keycode == 85)
-	{
-		if(ms->name < 3)
-		ms->name++;
-		else
-			ms->name -= 2;
-			ms->color += 500000;
-	}
-	if (keycode == 86)
-	{
-		if(ms->name < 3)
-			ms->name++;
-		else
-			ms->name --;
-		ms->color += 500000;
-	}
-	launch_fractal(ms);
-}
-
-void	more_option(int keycode, t_ms *ms)
-{
-	if (keycode == 46)
-	{
-		if(ms->name < 3)
-			ms->name++;
-		else
-			ms->name -= 2;
-		ft_init_mlx(ms);
-		choose_launcher(ms);
-		mlx_hook(ms->win, 2, 1, mouse_julia, ms);
-		mlx_hook(ms->win, 2, 1, key_hook, ms);
-		mlx_mouse_hook(ms->win, mouse_hook, ms);
-		mlx_loop(ms->mlx);
-	}
-	if (keycode == 83)
-		ms->color = 898888;
-	if (keycode == 84)
-	{
-		ms->color += 500000;
-	}
-	more_option2(keycode, ms);
-}
-
-void		key_hook2(int keycode, t_ms *ms)
+void	key_hook2(int keycode, t_ms *ms)
 {
 	if (keycode == 18)
 	{
@@ -77,12 +31,17 @@ void		key_hook2(int keycode, t_ms *ms)
 	}
 	if (keycode == 15)
 		choose_launcher(ms);
-	more_option(keycode, ms);
+	if (keycode == 4)
+	{
+		if(ms->text == 0)
+			ms->text = 1;
+		else ms->text = 0;
+	}
+	more_options(keycode, ms);
 }
 
 int		key_hook(int keycode, t_ms *ms)
 {
-	printf("%d\n", keycode);
 	if (keycode == EXIT)
 		exit(EXIT_SUCCESS);
 	if (keycode == UP)
@@ -123,7 +82,7 @@ void	ft_dezoom(t_ms *ms)
 	ms->it_max--;
 }
 
-int		mouse_hook(int mousecode, int x, int y, t_ms *ms)
+int		mouse_zoom(int mousecode, int x, int y, t_ms *ms)
 {
 	if (mousecode == 4 || mousecode == 1)
 		ft_zoom(x, y, ms);
