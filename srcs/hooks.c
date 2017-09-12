@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 15:17:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 20:44:28 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/12 22:35:24 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ void	key_hook2(int keycode, t_ms *ms)
 		choose_launcher(ms);
 	if (keycode == 4)
 	{
-		if(ms->text == 0)
+		if (ms->text == 0)
 			ms->text = 1;
-		else ms->text = 0;
+		else
+			ms->text = 0;
 	}
 	more_options(keycode, ms);
 }

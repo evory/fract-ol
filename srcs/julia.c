@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:36:48 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 21:47:29 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/12 22:35:25 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	julia(t_ms *ms)
 		ms->it++;
 	}
 	if (ms->it == ms->it_max)
-		put_pxl_to_img(ms, ms->x, ms->y, 0x000000);
+		put_pxl_to_img(ms, ms->x, ms->y, 0);
 	else
 		put_pxl_to_img(ms, ms->x, ms->y, (ms->color * ms->it));
 }

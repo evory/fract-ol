@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:07:25 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 21:48:44 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/12 22:33:06 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	burningship(t_ms *ms)
 		ms->it++;
 	}
 	if (ms->it == ms->it_max)
-		put_pxl_to_img(ms, ms->x, ms->y, 0x000000);
+		put_pxl_to_img(ms, ms->x, ms->y, 0);
 	else
 		put_pxl_to_img(ms, ms->x, ms->y, (ms->color * ms->it));
 }
@@ -84,5 +84,5 @@ void	init_burningship(t_ms *ms)
 	ms->zoom = 250;
 	ms->x1 = -2.00;
 	ms->y1 = -2.1;
-	ms->color = 902000;
+	ms->color = 15;
 }

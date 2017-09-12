@@ -6,7 +6,7 @@
 /*   By: bbrandt <bbrandt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:07:06 by bbrandt           #+#    #+#             */
-/*   Updated: 2017/09/11 20:38:18 by bbrandt          ###   ########.fr       */
+/*   Updated: 2017/09/12 21:14:52 by bbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	mandelbrot(t_ms *ms)
 		ms->it++;
 	}
 	if (ms->it == ms->it_max)
-		put_pxl_to_img(ms, ms->x, ms->y, 0x000000);
+		put_pxl_to_img(ms, ms->x, ms->y, 0);
 	else
 		put_pxl_to_img(ms, ms->x, ms->y, (ms->color * ms->it));
 }
